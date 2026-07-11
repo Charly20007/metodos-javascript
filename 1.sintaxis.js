@@ -23,10 +23,8 @@ let edad = 25;
 console.log(nombre, edad);
 
 // ----------------Tipos de variables------------------
-// Se van diferenciar segun su alcance y mutabilidad
-// a. var: (obsoleto)declara una variable que tiene un alcance global, pero se comporta como de bloque 
-// (de funcion) y puede ser reasignada, es decir que se puede cambiar su valor
-
+// Se van diferenciar segun su alcance (scope) y mutabilidad
+// a. var: (obsoleto)declara una variable que tiene un alcance global de funcion
 // b. let: permite crear variables con ambito(alcance) de 
 // bloque (que significa que solo esta disponible donde se declara) 
 // (de funcion en versiones antiguas), y puede ser reasignada, es decir que se puede cambiar su valor
