@@ -1,16 +1,18 @@
-// comentarios
+// 1. Comentarios:
 // Perminten agregar notas en el codigo, facilitando su comprension
 
-// varias lineas
+// Varias lineas:
 /*
 
 */
 
-// en linea
+// En linea:
 //
 
-// ----------------Variables------------------
-// variables: Estructuras que permiten almacenar datos en memoria, pueden contener datos de cualquier tipo
+// -------------------------------------------------------
+
+// 2. Variables:
+// Estructuras que permiten almacenar datos en memoria, pueden contener datos de cualquier tipo
 // Son dinamicas: No es necesario declarar el tipo de dato, se infiere en tiempo de ejecucion
 // Son sensibles a mayusculas y minusculas: nombre y Nombre son variables diferentes
 // No se pueden nombrar con numeros
