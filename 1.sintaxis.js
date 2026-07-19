@@ -100,3 +100,67 @@ Objeto
 // En resumen:
 // La computadora y JavaScript ven y almacenan DATOS (números, cadenas de texto, referencias de memoria).
 // Tú como programador creas variables para darle contexto y sentido a esos datos, convirtiéndolos en INFORMACIÓN útil para tu aplicación.
+
+//----------------------
+
+//Caracteristicas de las formas como se guarda el valor:
+
+//1.- Guardar el valor directamente (Datos primitivos)
+/*
+- la variable contiene el dato
+- al copiarla se copia el valor
+- cada variables es independiente
+- cambiar una no cambia la otra
+*/
+
+//2.- Guardar una referencia de memoria (objetos)
+/*
+let usuario1 = {
+    nombre: "Carlos"
+};
+
+let usuario2 = usuario1;
+
+En memoria sería algo parecido a esto:
+
+usuario1 ─────┐
+              │
+              ▼
+         ┌──────────────┐
+         │ nombre:Carlos│
+         └──────────────┘
+              ▲
+              │
+usuario2 ─────┘
+
+Ambos contienen la misma referencia al objeto en memoria
+
+- varias variables pueden referirse al mismo objeto
+- pueden cambair el contenido del objeto sin cambiar la referencia
+- la variable contiene una referencia al dato
+- al copiarla se copia la referencia
+- las variables apuntan al mismo dato
+- cambiar una puede cambiar la otra
+*/
+
+/*
+puedo cambiar mi varible a otra referencia de otro objeto
+persona = {
+    nombre: "Luis"
+};
+
+antes:
+persona
+   │
+   ▼
+Objeto A
+
+ahora:
+persona
+   │
+   ▼
+Objeto B
+
+El objeto A sigue existiendo si otra variable todavía tiene una referencia a él; si no, el 
+recolector de basura (garbage collector) podrá eliminarlo cuando ya no sea accesible.
+*/
