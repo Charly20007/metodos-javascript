@@ -3,7 +3,7 @@
 
 // Varias lineas:
 /*
-
+sasasa
 */
 
 // En linea:
@@ -24,14 +24,18 @@ console.log(nombre, edad);
 
 // ----------------Tipos de variables------------------
 // Se van diferenciar segun su alcance (scope) y mutabilidad
-// a. var: (obsoleto)declara una variable que tiene un alcance global de funcion
-// b. let: permite crear variables con ambito(alcance) de 
-// bloque (que significa que solo esta disponible donde se declara) 
-// (de funcion en versiones antiguas), y puede ser reasignada, es decir que se puede cambiar su valor
 
-// c. const: permite crear variables con ambito(alcance) de 
-// bloque (que significa que solo esta disponible donde se declara) (de funcion en versiones antiguas), 
-// no se puede reasignar, es decir que no se puede cambiar su valor
+// alcance: Indica en que parte del codigo esta disponible la variable
+// mutabilidad: Indica si la variable puede ser reasignada
+
+// a. var: (obsoleto)declara una variable que tiene un alcance de funcion o global si se declara fuera de la funcion, puede ser
+// redeclarada y reasignada
+
+// b. let: permite declarar variables con ambito(alcance) de  bloque({}) , permite reasignacion , y la redeclaracion 
+// depende del ambito
+
+// c. const: permite declarar variables con ambito(alcance) de bloque, 
+// no se puede reasignar, es decir que no se puede cambiar su valor, despues de su creacion.
 
 // ----------------Tipos de datos------------------
 // Primitivos
@@ -57,6 +61,15 @@ let funcion = function () {                   // Function
 // La variable almacena el valor directamente.
 // let nombre = "Carlos"; // La variable guarda directamente el dato "Carlos"
 
+/*
+Variable
+
+edad
+ │
+ ▼
+25
+*/
+
 // Objetos y Arreglos (Arrays, Objetos, Funciones): La variable no guarda todo el objeto
 // directamente, sino que almacena una referencia (la dirección en la memoria) donde está
 // guardado ese conjunto de datos.
@@ -65,6 +78,24 @@ let funcion = function () {                   // Function
 //     rol: "Administrador"
 // };
 // 'usuario' almacena la referencia/dirección de memoria donde vive esa información.
+// el objeto y sus propiedades estan almancenados en otro lugar de la memoria
+
+/*
+Variable
+
+usuario
+   │
+   ▼
+Referencia
+   │
+   ▼
+Objeto
+┌────────────────────┐
+│ nombre: "Carlos"   │
+│ rol: "Administrador"│
+└────────────────────┘
+*/
+
 
 // En resumen:
 // La computadora y JavaScript ven y almacenan DATOS (números, cadenas de texto, referencias de memoria).
