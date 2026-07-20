@@ -68,7 +68,20 @@ Si los tipos son diferentes, JavaScript intenta convertirlos.
 */
 
 // 4.- Operadores Logicos:
-/* Son operadores que trabajan con valores boleanos y deveulven un resultado logico
+/* Son operadores que trabajan con expresiones logicas (boleanos) permitiendo
+combinar o negar expresiones y devuelven un resultado logico
+
+- Operador AND (&&):
+¿las condiciones son verdaderas? -> Devuelve verdadero
+edad >= 18 && tieneLicencia
+
+- Operador OR (||):
+¿alguna de las condiciones es verdadera? -> Devuelve verdadero
+edad >= 18 || tieneLicencia
+
+- Operador NOT (!):
+¿es lo contrario? -> Devuelve verdadero si es falso y falso si es verdadero
+!edad >= 18
 
 */
 
