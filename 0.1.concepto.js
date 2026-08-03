@@ -1,7 +1,8 @@
-//DEFINICION DE JAVACRIPT
+//DEFINICION DE JAVACRIPT:
 /*Es un lenguaje de programacion que permite agregar logica, comportamiento e interactividad
 a una aplicacion o pagina web
 
+---------------------------------------------
 ¿Qué es el DOM?
 
 En pocas palabras: El DOM (Document Object Model o Modelo de Objetos del Documento) es una representación
@@ -16,8 +17,11 @@ y el estilo de una página web.
 
 ----------------------------------------------
 DEFINICION MAS TECNICA:
-Javascript es un lenguaje de programacion interpretado, dinamicamente tipado, orientado a objetos basado en prototipos,
-multiparadigma y estandarizado en ECMAScript
+- lenguaje de programacion interpretado
+- dinamicamente tipado
+- orientado a objetos basado en prototipos
+- multiparadigma
+- estandarizado por ECMAScript
 
 ----------------------------------------------
 - Lenguaje de programacion: es un conjunto de reglas(sintaxis) que usamos para darle instrucciones a una computadora
@@ -43,7 +47,18 @@ V8 (Chrome y Node.js)
 SpiderMonkey (Firefox)
 JavaScriptCore (Safari)
 
-Estos motores convierten tu código en instrucciones que entiende el procesador.
+Estos motores convierten tu código en instrucciones que entiende el procesador.(cpu)
+
+Ya que la pc solo entiende lenguaje binario, osea (0 y 1) -> lenguaje maquina
+traducciones:
+- compilando -> se convierte todo el codigo de una vez, crea un archivo ejecutable .exe
+    - lenguaje de bajo nivel -> mas cercano al lenguaje maquina, requiere menos recursos de procesamiento
+    - lenguaje de alto nivel -> mas alejado del lenguaje maquina, requiere mas recursos de procesamiento
+    Ejemplos: C, C++, Java, Python, JavaScript, Ruby, etc.
+- interpretando -> se convierte linea por linea, no crea un archivo ejecutable
+    -lenguaje interpretado -> es un lenguaje de programacion que se ejecuta linea por linea, sin necesidad de convertirlo previamente el programa
+    a lenguaje maquina
+    Ejemplos: Python, JavaScript, Ruby, etc.
 
 ----------------------------------------------
 - Dinamicamente tipado:
@@ -217,7 +232,7 @@ cómo debe comportarse el lenguaje
 //Es un lenguaje con tipado dinamico, que permite trabajar con variables de diferentes tipos.
 //Es un lenguaje con tipado debil, que permite trabajar con variables de diferentes tipos sin necesidad de declararlas.
 
-/*
+/* ----------------------------------------------------------------------------------
 
 En javascript no todo es objeto ya que existen los tipos primitivos que no son objetos
 let nombre = "Carlos";     // String (primitivo)
@@ -239,25 +254,15 @@ Ahora sí existe un objeto.
 
 Ese objeto apunta a String.prototype
 String
-
 │
-
 └── prototype
-
       │
-
       ▼
-
 {
-
     toUpperCase()
-
     toLowerCase()
-
     slice()
-
     trim()
-
 }
 Entonces el objeto temporal busca ahí.
 encuentra
@@ -352,6 +357,270 @@ function Persona(nombre) {
 }
 
 Cuando una funcion constructora se ejecuta con new, this representa el objeto que JS acaba de crear
+si escribo 
+new Persona("Juan");
+jS crea primero 
+{} -> este es el objeto vacio que se acaba de crear, ese objeto sera this
+function Persona(nombre, edad) {
+
+    this.nombre = nombre;
+
+    this.edad = edad;
+
+}
+
+Persona.prototype.saludar = function() {
+
+    console.log("Hola, soy " + this.nombre);
+
+};
+
+              Persona
+
+                 │
+
+          prototype
+
+                 │
+
+                 ▼
+
+          {
+
+             saludar()
+
+          }
+
+            ▲         ▲
+
+            │         │
+
+        Carlos      Ana
+
+Carlos y Ana tienen su propio nombre, pero comparten la misma función saludar().
+const carlos = new Persona("Carlos", 26);
+
+carlos.saludar();
+Ojo tenemso que llamarlo con new
+new Persona("Carlos");
+Entonces JavaScript la trata como una función constructora, crea un objeto nuevo, 
+asigna this a ese objeto y devuelve la instancia.
+
+Pero la forma mas moderna ahora es clasS, eso es despues del ES6
+class Persona {
+
+    constructor(nombre, edad) {
+
+        this.nombre = nombre;
+        this.edad = edad;
+
+    }
+
+    saludar() {
+
+        console.log("Hola soy " + this.nombre);
+
+    }
+
+}
+y se crear el objeto igual:
+const carlos = new Persona("Carlos", 26);
+
+carlos.saludar(); // "Hola soy Carlos"
+class Persona es simplemente una forma más limpia de escribir funciones constructoras
+
+Entonces el constructor de una clase:
+class Persona {
+
+    constructor(nombre) {
+
+        this.nombre = nombre;
+
+    }
+
+}
+equivale a esto
+function Persona(nombre) {
+
+    this.nombre = nombre;
+
+}
+
+Y un método de una clase:
+class Persona {
+
+    saludar() {
+
+    }
+
+}
+equivale a esto:
+Persona.prototype.saludar = function () {
+
+};
+
+La clase no reemplazó el sistema de prototipos.
+Simplemente es una forma más cómoda de escribir código.
+Por eso se dice que class es azúcar sintáctico (syntactic sugar).
+
+               Tú escribes
+
+           class Persona {
+
+           }
+
+                  │
+                  ▼
+
+      JavaScript sigue utilizando
+
+      Función constructora
+
+              +
+
+      Persona.prototype
+
+              +
+
+      new
+
+              +
+
+      [[Prototype]]
+
+Es decir:
+Tú escribes una clase.
+JavaScript sigue trabajando con funciones constructoras y prototipos.
+
+Una observacion para entenderlo bien:
+class Persona {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+
+  saludar() {
+    console.log("Hola");
+  }
+}
+
+const carlos = new Persona("Carlos");
+pasa esto mira:
+
+Persona
+  │
+  │ propiedad .prototype
+  ▼
+Persona.prototype
+  ▲
+  │ enlace interno [[Prototype]]
+  │
+carlos
+
+Aquí está la diferencia:
+
+Persona.prototype es una propiedad de Persona.
+carlos.[[Prototype]] es un enlace interno del objeto carlos.
+Ese enlace apunta al mismo objeto que está guardado en Persona.prototype.
+
+Object.getPrototypeOf(carlos) === Persona.prototype -> true
+carlos.__proto__ === Persona.prototype -> true // forma antigua
+
+Para que quede claro: 
+Osea [[Prototype]] es un enlace interno
+const carlos = new Persona("Carlos"); (es el nuevo objeto)
+
+enlace invisible:
+carlos
+  │
+  │ [[Prototype]]
+  ▼
+Persona.prototype
+
+Ese [[Prototype]] le dice:
+"Si no encuentras una propiedad o método en carlos, busca aquí."
+carlos
+│
+├── nombre ✅
+│
+└── saludar ❌
+        │
+        ▼
+[[Prototype]]
+        │
+        ▼
+Persona.prototype
+        │
+        └── saludar ✅
+
+
+Pero acuerdate que esa Persona se vincula con Object:
+Cadena de prototipos de carlos
+carlos
+   ↓
+Persona.prototype
+   ↓
+Object.prototype
+   ↓
+null
+
+Signfica que:
+carlos.[[Prototype]]
+        ↓
+Persona.prototype
+
+y a su vez:
+Persona.prototype.[[Prototype]]
+        ↓
+Object.prototype
+
+y finalmente:
+Object.prototype.[[Prototype]]
+        ↓
+null
+
+Ahora un ejemplo Real:
+
+class Persona(nombre) {
+    constructor(nombre) {
+        this.nombre =  nombre
+    }
+
+    saludar() {
+        console.log("saludar")
+    }
+}
+
+const carlos = new Persona("Carlos")
+carlos.saludar();
+entonces busca asi:
+carlos
+↓
+¿saludar?
+NO
+
+Persona.prototype
+↓
+¿saludar?
+SÍ ✅
+
+Pero si pongo esto:
+carlos.toString();
+
+Se bucas asi 
+carlos
+↓
+¿toString?
+NO
+
+Persona.prototype
+↓
+¿toString?
+NO
+
+Object.prototype
+↓
+¿toString?
+SÍ ✅
 
 
 */ 
