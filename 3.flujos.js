@@ -1,5 +1,5 @@
-// Estructura de control de Flujo en Js
-
+// Estructura de control de Flujo en Js:
+// ----------------------------------------
 /*Condicionales:
 Las condicionales son estructuras de control que permiten ejecutar 
 un bloque de codigo dependiendo si se cumple

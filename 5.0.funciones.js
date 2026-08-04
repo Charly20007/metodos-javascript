@@ -1,4 +1,5 @@
 // 5. Funciones en Javascript:
+// ---------------------------
 /*
 Son bloques de codigo reutilizables que realizan una tarea especifica, 
 se ejecuta cuando es invocada
@@ -25,9 +26,6 @@ function(parametro1, parametro2) {
     return valor;
 }
 Caracterisitica principal que Javascript las carga antes de ejecutar el programa(hosting)
-
-
-
 
 - Expresiones de funcion:(funciones anonimas)
 Son funciones sin nombres que se asignan a una varible
