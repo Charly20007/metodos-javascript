@@ -24,12 +24,13 @@ DEFINICION MAS TECNICA:
 - estandarizado por ECMAScript
 
 ----------------------------------------------
-- Lenguaje de programacion: es un conjunto de reglas(sintaxis) que usamos para darle instrucciones a una computadora
-para que realice tareas, la pc entiende esas intrucciones y las ejecuta
+- Lenguaje de programacion: es un conjunto de reglas(sintaxis) que usamos para darle
+instrucciones a una computadora para que realice tareas, la pc entiende esas intrucciones y las ejecuta
 
 ----------------------------------------------
-- Interpretado: Significa que el lenguaje se ejecuta mientra va leyendo, sin que tengas que convertilo previamente el programa
-a lenguaje maquina
+- Interpretado: Significa que el lenguaje se ejecuta mientra va leyendo, sin que tengas
+que convertilo previamente el programa a lenguaje maquina
+
 El motor de JavaScript hace algo parecido a esto:
 Lee la primera línea
 ↓
@@ -56,7 +57,8 @@ traducciones:
     - lenguaje de alto nivel -> mas alejado del lenguaje maquina, requiere mas recursos de procesamiento
     Ejemplos: C, C++, Java, Python, JavaScript, Ruby, etc.
 - interpretando -> se convierte linea por linea, no crea un archivo ejecutable
-    -lenguaje interpretado -> es un lenguaje de programacion que se ejecuta linea por linea, sin necesidad de convertirlo previamente el programa
+    -lenguaje interpretado -> es un lenguaje de programacion que se ejecuta linea por linea, sin
+    necesidad de convertirlo previamente el programa
     a lenguaje maquina
     Ejemplos: Python, JavaScript, Ruby, etc.
 
@@ -96,7 +98,8 @@ marca → propiedad
 color → propiedad
 acelerar → método
 
-La programación orientada a objetos busca organizar el código usando objetos que agrupan datos y comportamientos relacionados.
+La programación orientada a objetos busca organizar el código usando objetos
+que agrupan datos y comportamientos relacionados.
 
 ----------------------------------------------
 - Basado en Prototipos:
@@ -109,9 +112,9 @@ María
 Pedro
 Todos nacen de esa clase
 
-Javascript no tenia clases tenia prototipos
-Un prototipo es simplemente otro objeto del cual puedes heredar propiedades y métodos, a ese objeto se le conoce como Modelo
-para otro objeto
+Javascript no tenia clases tenia "prototipos"
+Un prototipo es simplemente otro objeto del cual puedes heredar propiedades y métodos,
+a ese objeto se le conoce como "Modelo" para otro objeto
 El objeto modelo se llama prototipo
 
 El objeto va heredar del prototipo sus caracteristicas (propiedades y metodos)
@@ -161,7 +164,7 @@ No.
 ↓
 undefined
 
-La cadena de prototipos (Prototype Chain): que significa que los prototipos pueden tener prototipos
+La cadena de prototipos (Prototype Chain): "que significa que los prototipos pueden tener prototipos"
 Object
    ▲
    │
@@ -169,8 +172,6 @@ persona
    ▲
    │
 carlos
-
-
 
 ----------------------------------------------
 - Multiparadigma:
@@ -205,8 +206,8 @@ const dobles = numeros.map(numero => numero * 2);
 No modificas directamente los datos; en su lugar, transformas la información mediante funciones.
 
 - Estandarizado por ECMAScript:
-ECMAScript es la especificacion o estandar que define como debe funcionar el lenguaje, osea es como un manual de las
-reglas del lenguaje
+ECMAScript es la especificacion o estandar que define como debe funcionar el lenguaje,
+osea es como un manual de las reglas del lenguaje
 
 Indica cosas como:
 
@@ -218,8 +219,6 @@ qué métodos existen (map, filter, reduce)
 cómo debe comportarse el lenguaje
 
 */
-
-
 
 //Es un lenguaje utilizado para el desarrollo web,
 //Es un lenguaje interpretado, o a veces compilado en tiempo de ejecucion (JIT)
@@ -234,6 +233,8 @@ cómo debe comportarse el lenguaje
 
 /* ----------------------------------------------------------------------------------
 
+DATO IMPORTANTE:
+
 En javascript no todo es objeto ya que existen los tipos primitivos que no son objetos
 let nombre = "Carlos";     // String (primitivo)
 let edad = 26;             // Number
@@ -247,7 +248,7 @@ pero si nos damos cuentas los primitivos tienes metodos, y como es posible eso
 javascript hace automaticamente eso
 nombre.toUpperCase();
 
-1. Crea un objeto temporal:
+1. Crea un objeto temporal: (OBJECT WRAPPER)
 new String("Carlos")
 OJO: Tú NO escribiste eso. JavaScript lo hace automáticamente.
 Ahora sí existe un objeto.
@@ -292,7 +293,8 @@ String (función)
 
 }
 
-JavaScript crea temporalmente un objeto String (para que puedas usar métodos). Ese objeto tiene esta cadena de prototipos:
+JavaScript crea temporalmente un objeto String (para que puedas usar métodos). Ese objeto tiene 
+esta cadena de prototipos:
 Objeto String temporal
 ↓
 String.prototype
@@ -317,7 +319,7 @@ Object.prototype
 null
 
 
-La regla de oro:
+La REGLA DE ORO:
 1. Buscar en el propio objeto.
 
 ↓
@@ -406,7 +408,7 @@ new Persona("Carlos");
 Entonces JavaScript la trata como una función constructora, crea un objeto nuevo, 
 asigna this a ese objeto y devuelve la instancia.
 
-Pero la forma mas moderna ahora es clasS, eso es despues del ES6
+Pero la forma mas moderna ahora es class, eso es despues del ES6
 class Persona {
 
     constructor(nombre, edad) {
